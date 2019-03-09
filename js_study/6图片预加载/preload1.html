@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>无序预加载</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	html,body{
+		width: 100%;
+		height: 100%;
+	}
+	a{
+		text-decoration: none;
+	}
+		.box{
+			width: 1000px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		.btn{
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			border:1px solid #ccc;
+			border-radius: 5px;
+			background-color: #fff;
+			padding:0 10px;
+			margin-right: 50px;
+			color: #333;
+		}
+		.btn:hover{
+			background: pink;
+		    color: #fff;
+		}
+		#img{
+			width: 100%;
+			height: 550px;
+		}
+		.loading{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: pink;
+			font-size: 30px;
+		}
+		.progress{
+			position: absolute;
+			top: 0;left: 0;right: 0;bottom: 0;
+			margin:auto;
+			width: 100px;height: 100px;
+			text-align: center;
+			line-height: 100px;
+			color: #fff;
+
+		}
+		.circle{
+			display: block;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			box-shadow: 0 5px 1px #fff;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			animation: rotate 1s  linear infinite;	
+		}
+		@keyframes rotate{
+			0%{transform: rotate(0deg);}
+			100%{transform:rotate(360deg);}
+		}
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div class="loading">
+		<div class="progress">
+			<span class="circle"></span>
+		    <b>0%</b>
+		</div>
+	</div>
+	<div class="box">
+		<img src='http://a.hiphotos.baidu.com/image/pic/item/91ef76c6a7efce1b3d80168bad51f3deb58f65cc.jpg' alt="pic" id="img"/>
+		<p>
+			<a href="javascript:;" class="btn" data-control="prev">上一页</a>
+			<a href="javascript:;" class="btn" data-control="next">下一页</a>
+		</p>
+	</div>
+<script src="preload1.js"></script><!-- 预加载插件 -->
+<script type="text/javascript">
+// $(function(){
+	var imgs=[
+	'http://a.hiphotos.baidu.com/image/pic/item/91ef76c6a7efce1b3d80168bad51f3deb58f65cc.jpg',
+	'http://a.hiphotos.baidu.com/image/pic/item/91ef76c6a7efce1b8d7286cbad51f3deb48f6551.jpg',
+	'http://f.hiphotos.baidu.com/image/pic/item/14ce36d3d539b600078f2676eb50352ac75cb7a9.jpg',
+	'http://g.hiphotos.baidu.com/image/pic/item/5ab5c9ea15ce36d36bca2c973bf33a87e850b14f.jpg',
+	'http://b.hiphotos.baidu.com/image/pic/item/0bd162d9f2d3572c1826b51d8813632763d0c32e.jpg',
+	'http://h.hiphotos.baidu.com/image/pic/item/0e2442a7d933c895de68747ad31373f082020098.jpg',
+	'http://h.hiphotos.baidu.com/image/pic/item/4a36acaf2edda3cc2bb6932b02e93901213f926e.jpg',
+	'http://d.hiphotos.baidu.com/image/pic/item/37d3d539b6003af3c1fbb749362ac65c1038b652.jpg'
+	];
+// 	var index=0,
+// 	    len=imgs.length,
+// 	    count=0,
+// 	    $progress=$('.progress b');
+
+// 	    $.each(imgs,function(i,src){
+// 	    	var imgObj=new Image();
+// 	    	$(imgObj).on('load error',function(){
+// 	    		$progress.html(Math.round((count+1)/len*100)+'%');
+// 	    		if(count>=len-1){
+// 	    			$('.loading').fadeOut();
+// 	    			document.title='1/'+len;
+// 	    		}
+// 	    		count++;
+// 	    	});
+// 	    	imgObj.src=src;
+// 	    });
+	    $('.btn').on('click',function(){
+	    	if($(this).data('control')==='prev'){//上一张
+	    		index=Math.max(0,--index);//index先减减再与0比较
+	    	}else{//下一张
+	    		index=Math.min(len-1,++index);
+	    	}
+	    	document.title=(index+1)+'/'+len;
+	    	$('#img').attr('src',imgs[index]);
+	    });
+// 	});
+
+var index=0,len=imgs.length,$progress=$('.progress b');
+$.preload(imgs,{
+	each:function(count){
+		$progress.html(Math.round((count+1)/len*100)+'%');
+	},
+	all:function(){
+		$('.loading').hide();
+		document.title='1/'+len;
+	}
+});
+</script>
+</body>
+</html>

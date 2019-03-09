@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>图片加载之qq无序</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="preloadPlugin.js"></script>
+</head>
+<style type="text/css">
+	body{
+		background: #ccc;
+	}
+	a{
+		text-decoration: none;
+	}
+	ul,li{
+		list-style: none;
+		padding: 0;
+		margin:0;
+	}
+	.box{
+		margin:100px 0 0 100px;
+	}
+	#dog-btn{
+		display:inline-block;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		border:1px solid #777;
+		border-radius: 50%;
+		margin-bottom: 10px;
+		background:pink;
+		text-align: center;
+		color: #777;
+		/*text-indent: 20px;*/
+	}
+	#dog-btn:hover{
+		color:#fff;
+		border:1px solid #fff;
+	}
+	.panel{
+		width:983px;
+		padding:2px;
+		border:1px solid #777;
+		background-color: #fff;
+		color: #777;
+		display: none;
+	}
+	.loading{
+		text-align: center;
+	}
+	.list li{
+		display: inline-block;
+		width: 240px;
+		height: 240px;
+		border:1px solid #ccc;
+		margin-bottom: 2px;
+		cursor: pointer;
+		margin-right: 2px;
+	}
+	.list li:hover{
+		border-color:#777;
+	}
+</style>
+<body>
+	<div class="box">
+		<a href="javscript:;" id="dog-btn">表情</a>
+		<div class="panel">
+			<P class="loading">Loading...</P>
+<!-- 		<ul class="list">
+			<li><img src="dog/00.gif"></li>
+			<li><img src="dog/01.gif"></li>
+			<li><img src="dog/02.gif"></li>
+			<li><img src="dog/03.gif"></li>
+			<li><img src="dog/04.gif"></li>
+			<li><img src="dog/05.gif"></li>
+			<li><img src="dog/06.gif"></li>
+			<li><img src="dog/07.gif"></li>
+			<li><img src="dog/08.gif"></li>
+			<li><img src="dog/09.gif"></li>
+			<li><img src="dog/10.gif"></li>
+			<li><img src="dog/11.gif"></li>
+			<li><img src="dog/12.gif"></li>
+			<li><img src="dog/13.gif"></li>
+			<li><img src="dog/14.gif"></li>
+			<li><img src="dog/15.gif"></li>
+		</ul> -->
+	</div>
+</div>
+<script type="text/javascript">
+	var $btn=$('#dog-btn');
+	var $panel=$('.panel');
+	var imgs=[];
+	for(var i=0;i<16;i++){
+		imgs[i]='dog/'+(i+1)+'.gif';
+	}
+	var len=imgs.length;
+	$btn.on('click',function(e){
+		e.stopPropagation();
+		$panel.show();
+		$.preload(imgs,{
+			all:function(){
+				var html='';
+				html+='<ul class="list">';
+				for(var i=0;i<len;i++){
+					html+='<li><img src='+imgs[i]+'></li>';
+				}
+				html+='</ul>';
+				setTimeout(function(){$panel.html(html);},1000);
+			}
+		});
+	});
+	$(document).on('click',function(){
+		$panel.hide();
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>getByClassName</title>
+</head>
+<body>
+		<ul id="list">
+			<li class="on">1</li>
+			<li class="select">2</li>
+			<li class="on">3</li>
+			<li>4</li>
+		</ul>
+		<p class="on">class为on的p标签</p>
+</body>
+</html>
+<script type="text/javascript">
+    //关于获取元素方法测试
+  window.onload=function(){
+     var len1= getByClass('on','list');
+    console.log(len1.length); 
+    var len2= getByClass('on');
+    console.log(len2.length); 
+
+    var tGetclass=document.getElementsByClassName('on');
+    console.log("getElementsByClassName"+tGetclass);
+
+    var tGetclass1=document.querySelector('.on');
+    console.log("querySelector"+tGetclass1);
+
+    var tGetclass2=document.querySelectorAll('.on');
+    console.log("querySelectorAll"+tGetclass2);
+    
+    var tGetclass3=document.getElementById('list');
+    console.log("getElementById"+tGetclass3);
+}
+
+function getByClass(clsName, parent){
+    var oParent;
+ if(arguments.length==1){//获得实参个数getByClass.length获得形参个数,=是赋值，==这才是判断两个值是否相等
+     oParent=document.body;
+ } else{
+     oParent=document.getElementById(parent);
+ }
+var oChildren=oParent.getElementsByTagName('*');
+var oArr=[];
+for(var i=0;i<oChildren.length;i++){
+    if(oChildren[i].className==clsName){
+        oArr.push(oChildren[i]);
+    }
+}
+return oArr;
+}   
+</script>

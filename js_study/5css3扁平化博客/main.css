@@ -1,0 +1,267 @@
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+h1{
+	padding: 12px;
+	margin:0;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+}
+ul{
+	margin:0;padding: 0;	
+	list-style: none;
+}
+a{
+	text-decoration: none;
+    display: inline-block;
+}
+button{
+	border:none;
+	background:pink;
+	color:#fff;
+	padding:10px;
+}
+.hr{
+	height: 2px;
+	width: 100%;
+	margin:0 auto;
+}
+.sub-heading{
+	line-height: 30px;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+header{
+	background:rgba(255,255,255,0.06);
+}
+#banner{
+	background: transparent;
+	height: 700px;
+}
+nav{
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	background:#fbfafd21;
+}
+nav ul{
+	position: absolute;
+    right: 20px;
+}
+nav ul li{
+	float: left;
+	display: inline-block;
+	line-height: 40px;
+	margin-right: 20px;
+}
+nav ul li a{
+	line-height: 40px;
+	color: #fff;
+}
+.active{
+     border-bottom: 2px solid #fff;
+}
+#banner .inner{
+	max-width: 300px;
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+	top: 160px;
+}
+#banner button{
+	padding: 14px 40px;
+	font-size: 20px;
+	letter-spacing: 4px;
+}
+#banner .inner .more{
+	margin-top: 230px;
+}
+.logo{
+	float: left;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	padding-left: 20px;
+}
+.logo a{
+	color: #fff;
+	line-height: 40px;
+}
+.green-section{
+	text-align: center;
+	background: pink;
+	color: #fff;
+	padding: 100px 0;
+}
+.green-section .hr{
+	background:#f708b624;
+	width: 60%;
+}
+.wrapper{
+	max-width: 1080px;
+	margin: 0 auto;
+}
+.green-section .icon-group .icon{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	border:2px solid #f708b64d;
+	transform: rotate(45deg);
+	margin: 20px;
+}
+.icon-group{margin-top: 60px;}
+.gray-section{
+	color:#867b7b;
+	background: #ffe3e3;
+}
+/*.article-preview{
+	font-size:0;
+}*//*字体大小不同，每块之间会有缝隙*/
+.gray-section .img-section{
+	width: 45%;
+}
+.gray-section .img-section img{
+	width: 100%;
+}
+.gray-section .text-section{
+	width: 55%;
+}
+.gray-section .text-section .text-padding{
+	padding:60px 60px 0 50px;
+}
+.article-preview>div{float: left;}
+.article-preview:nth-child(even){
+   background: #fdd4d4d1;
+}
+.purple-section .hr{
+	background:#d6bbbb57;
+	width: 60%;
+}
+.purple-section{
+	background:#f991ca96;
+	padding: 80px;
+	color: #fff;
+}
+.purple-section .heading-wrapper{
+	text-align: center;
+}
+.card-group{width: 80%;margin:0 auto;padding-top: 80px;}
+.card{
+	float: left;
+	width: 50%;
+	text-align:center;
+	padding:20px 50px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.card:nth-child(1){
+	background: rgba(0,0,0,0.02);
+}
+.card:nth-child(2){
+	background: rgba(0,0,0,0.04);
+}
+.card:nth-child(3){
+	background: rgba(0,0,0,0.06);
+}
+.card:nth-child(4){
+	background: rgba(0,0,0,0.08);
+}
+.card:nth-child(5){
+	background: rgba(0,0,0,0.10);
+}
+.card:nth-child(6){
+	background: rgba(0,0,0,0.12);
+}
+footer{
+	background: #777;
+	color: #fff;
+	min-height: 200px;
+	text-align: center;
+}
+ul.share-group{
+	width: 1080px;
+	margin: 0 auto;
+	list-style: none;
+	padding:50px;
+}
+.share-group li{
+    display: inline-block;
+    padding: 10px;
+}
+.main-wrapper{
+	background: #777 url(images/bg.png) no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	background-size: cover;
+}
+.mask{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background:#4c356b47;
+	z-index: 100;
+	display: none;
+}
+#sidebar{
+	width: 260px;
+	background:#1b1a1abf;
+	position: fixed;
+	top: 0;
+	right: -260px;
+	bottom: 0;
+	padding: 40px 0;
+	z-index: 101;
+	transition: right 0.5s;
+}
+#sidebar ul a{
+	padding: 10px 30px;
+	color: #fff;
+	width: 200px;
+}
+#sidebar ul a:hover{
+	background: #444;
+}
+.back-to-top{
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	border:1px solid #fff;
+	border-radius: 50%;
+	background:#544d52b5;
+	outline: none;
+	display: none;
+}
+.article #banner{
+   height: 300px;	
+}
+.article #banner .inner{
+	top: 100px;
+}
+.article h1{
+	border:none;
+}
+.article .content .content_wrapper{
+    width: 80%;
+	margin:0 auto;
+}
+.article .article_info{
+	padding-left: 20px;
+	color: #ccc;
+}
+.article .article_content{
+	height: 2000px;
+	background: pink;
+	opacity: 0.8;
+	border-radius: 16px;
+}
+
+
+

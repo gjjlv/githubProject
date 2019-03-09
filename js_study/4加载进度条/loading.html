@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>loading</title>
+	<meta charset="utf-8">
+<!-- 	<style type="text/css">
+		.loading{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 2;background-color: #fff}
+		.loading .pic{width: 64px;height: 64px;background: url(images/round.gif);position: absolute;top:0;bottom: 0;left: 0;right: 0;margin:auto;}使用.gif图标
+	</style> -->
+	<link rel="stylesheet" type="text/css" href="loading.css">
+	<script src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		document.onreadystatechange=function(){
+			if(document.readyState=="complete"){
+				$(".loading").fadeOut();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="loading">
+		<div class="pic">
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+		</div>
+	</div>
+ <img src="http://imgsrc.baidu.com/forum/w=580/sign=48a068280fd79123e0e0947c9d345917/154666d7912397dd2364a0245a82b2b7d0a2876b.jpg">
+ <img src="http://hbimg.b0.upaiyun.com/f14682eb51d8c5ab3391ac59ca26e824756c39dc51707-b23Kt1_fw658">
+<img src="http://hbimg.b0.upaiyun.com/0e2fb7149dd144d3df7af9d3c34192dfc6068e35fa8d-Bdkeht_fw236">
+</body>
+</html>

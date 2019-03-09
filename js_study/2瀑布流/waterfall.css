@@ -1,0 +1,22 @@
+#main{
+	-webkit-column-width:337px;
+	-moz-column-width:337px;
+	-o-column-width:337px;
+	-ms-column-width:337px; 
+}
+.box{
+	padding: 10px 0 0 15px;
+
+}
+.pic{
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #ccc;
+	width: 300px;
+}
+.pic img{
+	display: block;
+	width: 300px;
+	height: auto;
+}
